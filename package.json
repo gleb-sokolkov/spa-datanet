@@ -10,7 +10,7 @@
     "build": "webpack",
     "serve": "",
     "start": "node index.js", 
-    "heroku-postbuild": "webpack -p"
+    "heroku-postbuild": "webpack"
   },
   "repository": {
     "type": "git",
