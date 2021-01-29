@@ -1,0 +1,186 @@
+.cool-border {
+    border: 3px solid map-get($map: $grays, $key: "500");
+}
+
+html,
+body {
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+* {
+    font-size: 1rem;
+}
+
+section.head {
+    background-color: map-get($map: $grays, $key: "900");
+    position: relative;
+    //height: 500px;
+
+    .container {
+        //height: 100%;
+
+        & > * {
+            //height: 100%;
+        }
+
+        .image-block {
+            @extend .p-0, .d-flex, .align-items-center, .justify-content-center;
+            img {
+                border-radius: $border-radius-lg;
+                width: 600px;
+                height: auto;
+                //border: 3px solid map-get($map: $grays, $key: "500");
+                @extend .cool-border;
+            }
+        }
+
+        .logo {
+            @extend .d-inline, .border-0, .ml-3, .mt-n2;
+            width: 3rem;
+            height: auto;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%, 0%);
+        height: 0px;
+        border-right: 20px solid transparent;
+        border-top: 20px solid inherit;
+        border-bottom: 20px solid transparent;
+        border-left: 20px solid transparent;
+    }
+}
+
+section.rent {
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        & > * {
+            font-weight: $font-weight-light;
+            font-size: $font-size-lg;
+            padding: 1rem;
+            flex-basis: 300px;
+        }
+    }
+}
+
+section.placement {
+    .jumbotron {
+        @extend .bg-secondary;
+    }
+
+    .services {
+        @extend .d-flex, .flex-wrap, .justify-content-center, .text-muted;
+
+        background-color: map-get($map: $grays, $key: "100");
+
+        position: relative;
+        z-index: 0;
+
+        .card {
+            max-width: 25rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            @extend .m-3, .shadow-sm;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            top: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-right: 45vw solid transparent;
+            border-left: 45vw solid transparent;
+            border-top: 15rem solid map-get($map: $theme-colors, $key: "secondary");
+            z-index: -1;
+            //background-color: red;
+        }
+    }
+}
+
+section.features {
+    background-color: map-get($map: $grays, $key: "100");
+
+    .jumbotron {
+        @extend .mb-0;
+        background: inherit;
+    }
+}
+
+.carousel.bordered .carousel-item {
+    border: 3px solid map-get($map: $grays, $key: "100");
+}
+
+
+
+
+@include media-breakpoint-down(xl) {
+    html,
+    body {
+        font-size: 1rem;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    html,
+    body {
+        font-size: 0.9rem;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    html,
+    body {
+        font-size: 0.8rem;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    html,
+    body {
+        font-size: 0.7rem;
+    }
+
+    section.head {
+        .container {
+            .image-block {
+                img {
+                    width: 400px;
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(xs) {
+}
+
+@media (max-width: 480px) {
+    section.head {
+        .container {
+            .image-block {
+                img {
+                    width: 250px;
+                }
+            }
+        }
+    }
+
+    .cool-border {
+        border-width: 1px;
+    }
+
+    .carousel.bordered .carousel-item {
+        border-width: 1px;
+    }
+}

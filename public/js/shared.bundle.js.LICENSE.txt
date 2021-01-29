@@ -1,0 +1,5 @@
+/*!
+  * Native JavaScript for Bootstrap v3.0.14 (https://thednp.github.io/bootstrap.native/)
+  * Copyright 2015-2020 © dnp_theme
+  * Licensed under MIT (https://github.com/thednp/bootstrap.native/blob/master/LICENSE)
+  */
