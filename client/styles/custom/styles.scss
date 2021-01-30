@@ -2,6 +2,14 @@
     border: 3px solid map-get($map: $grays, $key: "500");
 }
 
+.flex-cards {
+    @extend .d-flex, .flex-wrap, .justify-content-center;
+
+    .card {
+        flex: 0 0 auto;
+    }
+}
+
 html,
 body {
     font-size: 16px;
@@ -18,14 +26,9 @@ section.head {
     //height: 500px;
 
     .container {
-        //height: 100%;
-
-        & > * {
-            //height: 100%;
-        }
-
         .image-block {
-            @extend .p-0, .d-flex, .align-items-center, .justify-content-center;
+            @extend .p-0, .d-flex, .align-items-center, .justify-content-center;    
+
             img {
                 border-radius: $border-radius-lg;
                 width: 600px;
@@ -78,7 +81,7 @@ section.placement {
     }
 
     .services {
-        @extend .d-flex, .flex-wrap, .justify-content-center, .text-muted;
+        @extend .flex-cards, .text-muted;
 
         background-color: map-get($map: $grays, $key: "100");
 
@@ -112,17 +115,19 @@ section.features {
     background-color: map-get($map: $grays, $key: "100");
 
     .jumbotron {
-        @extend .mb-0;
+        @extend .mb-0, .flex-cards;
         background: inherit;
+
+        .card {
+            max-width: 30rem;
+            @extend .m-3, .shadow, .border-0;
+        }
     }
 }
 
 .carousel.bordered .carousel-item {
     border: 3px solid map-get($map: $grays, $key: "100");
 }
-
-
-
 
 @include media-breakpoint-down(xl) {
     html,
@@ -163,6 +168,21 @@ section.features {
 }
 
 @include media-breakpoint-down(xs) {
+    section.features {
+        .jumbotron {
+            .card {
+                max-width: 100%;
+            }
+        }
+    }
+
+    section.placement {
+        .services {
+            .card {
+                max-width: 100%;
+            }
+        }
+    }
 }
 
 @media (max-width: 480px) {
